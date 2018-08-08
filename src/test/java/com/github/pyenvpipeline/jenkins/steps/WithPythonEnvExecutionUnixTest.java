@@ -39,7 +39,7 @@ public class WithPythonEnvExecutionUnixTest extends WithPythonEnvExecutionTestBa
         WithPythonEnvStep python36Location = new WithPythonEnvStep("/usr/bin/python3.6");
         execution = new WithPythonEnvStep.Execution(python36Location, mockStepContext);
         createVirtualenvCommand = execution.getCreateVirtualEnvCommand(mockStepContext, true, ".pyenv-python");
-        Assert.assertEquals("/usr/bin/python -m venv --python=/usr/bin/python /home/user/.jenkins/.pyenv-python", createVirtualenvCommand.toString());
+        Assert.assertEquals("/usr/bin/python -m venv /home/user/.jenkins/.pyenv-python", createVirtualenvCommand.toString());
 
         // Ensure that ShiningPanda works as expected
         WithPythonEnvStep unixShiningPandaLocation = new WithPythonEnvStep("CPython-2.7-Unix");
