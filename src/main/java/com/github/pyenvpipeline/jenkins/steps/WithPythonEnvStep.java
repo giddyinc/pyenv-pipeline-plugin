@@ -209,7 +209,11 @@ public class WithPythonEnvStep extends Step implements Serializable{
 
             command.add(commandPath);
             command.add("-m");
-            command.add("virtualenv");
+            if (commandPath.endsWith("3.6")) {
+                command.add("venv");
+            } else {
+                command.add("virtualenv");
+            }
             command.add("--python="+commandPath);
             command.add(fullQualifiedDirectoryName);
 
